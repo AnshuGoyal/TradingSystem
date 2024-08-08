@@ -21,8 +21,8 @@ public class Main {
         DbService dbService = new DbService();
         AccountService accountService = new AccountService(dbService);
         TradeService tradeService = new TradeService(dbService);
-        OrderMatchingStrategy tradeMatchingStrategy = new OrderMatchingStrategy1(dbService, tradeService);
-        OrderService orderService = new OrderService(dbService, tradeMatchingStrategy);
+        OrderMatchingStrategy orderMatchingStrategy1 = new OrderMatchingStrategy1(dbService, tradeService);
+        OrderService orderService = new OrderService(dbService, orderMatchingStrategy1);
         AppService appService = new AppService(accountService, orderService, tradeService);
 
         UserService userService = new UserService(dbService);
