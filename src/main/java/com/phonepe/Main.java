@@ -3,8 +3,8 @@ package com.phonepe;
 import com.phonepe.admin.AdminService;
 import com.phonepe.models.*;
 import com.phonepe.services.*;
-import com.phonepe.strategy.TradeMatchingStrategy;
-import com.phonepe.strategy.TradeMatchingStrategy1;
+import com.phonepe.strategy.OrderMatchingStrategy;
+import com.phonepe.strategy.OrderMatchingStrategy1;
 import com.phonepe.utility.Functions;
 
 import java.time.Instant;
@@ -21,7 +21,7 @@ public class Main {
         DbService dbService = new DbService();
         AccountService accountService = new AccountService(dbService);
         TradeService tradeService = new TradeService(dbService);
-        TradeMatchingStrategy tradeMatchingStrategy = new TradeMatchingStrategy1(dbService, tradeService);
+        OrderMatchingStrategy tradeMatchingStrategy = new OrderMatchingStrategy1(dbService, tradeService);
         OrderService orderService = new OrderService(dbService, tradeMatchingStrategy);
         AppService appService = new AppService(accountService, orderService, tradeService);
 

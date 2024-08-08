@@ -2,7 +2,7 @@ package com.phonepe.services;
 
 import com.phonepe.models.Order;
 import com.phonepe.models.OrderStatus;
-import com.phonepe.strategy.TradeMatchingStrategy;
+import com.phonepe.strategy.OrderMatchingStrategy;
 
 import java.time.Instant;
 import java.time.temporal.ChronoUnit;
@@ -15,11 +15,11 @@ import java.util.concurrent.locks.ReentrantReadWriteLock;
 public class OrderService {
     private final ReentrantReadWriteLock lock = new ReentrantReadWriteLock();
     private final DbService dbService;
-    private final TradeMatchingStrategy tradeMatchingStrategy;
+    private final OrderMatchingStrategy orderMatchingStrategy;
 
-    public OrderService(DbService dbService, TradeMatchingStrategy tradeMatchingStrategy) {
+    public OrderService(DbService dbService, OrderMatchingStrategy orderMatchingStrategy) {
         this.dbService = dbService;
-        this.tradeMatchingStrategy = tradeMatchingStrategy;
+        this.orderMatchingStrategy = orderMatchingStrategy;
     }
 
     public void placeOrder(Order order) {
@@ -124,7 +124,7 @@ public class OrderService {
     }
 
     private void matchOrders(Order order) {
-        tradeMatchingStrategy.matchOrders(order);
+        orderMatchingStrategy.matchOrders(order);
     }
 
 

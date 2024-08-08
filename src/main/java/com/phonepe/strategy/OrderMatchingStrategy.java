@@ -2,6 +2,6 @@ package com.phonepe.strategy;
 
 import com.phonepe.models.Order;
 
-public interface TradeMatchingStrategy {
+public interface OrderMatchingStrategy {
     void matchOrders(Order order);
 }

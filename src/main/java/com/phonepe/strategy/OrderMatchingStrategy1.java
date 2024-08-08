@@ -13,11 +13,11 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.PriorityQueue;
 
-public class TradeMatchingStrategy1 implements TradeMatchingStrategy {
+public class OrderMatchingStrategy1 implements OrderMatchingStrategy {
     private final DbService dbService;
     private final TradeService tradeService;
 
-    public TradeMatchingStrategy1(DbService dbService, TradeService tradeService) {
+    public OrderMatchingStrategy1(DbService dbService, TradeService tradeService) {
         this.dbService = dbService;
         this.tradeService = tradeService;
     }
